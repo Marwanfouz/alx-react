@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className="App-body">
         <p>Login to access the full dashboard</p>
-        <section className="form-input">
+        <section className="body-form-input">
           <section className="email-input">
           <label>
             Email:
@@ -21,7 +21,7 @@ function App() {
           </section>
           <section className="password-input">
           <label>
-            password:
+            Password:
             <input type="password" name="password" id="password" />
           </label>
           </section>
