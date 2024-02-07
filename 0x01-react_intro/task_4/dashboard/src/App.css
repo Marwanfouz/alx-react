@@ -1,0 +1,53 @@
+:root {
+  --holberton-red: #e1484c;
+}
+
+.App {
+  font-family: sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  border-bottom: 5px solid var(--holberton-red);
+}
+
+.App-header h1 {
+  color: var(--holberton-red);
+  align-self: center;
+}
+
+.App-body {
+  padding: 50px;
+  height: 65vh;
+}
+
+.body-form-input {
+  display: flex;
+  gap: 2em;
+}
+
+.App-footer {
+  border-top: 5px solid var(--holberton-red);
+  height: 10vh;
+}
+
+.App-footer p {
+  text-align: center;
+}
+
+input {
+margin-left: 10px;
+}
+
+button {
+  background: none;
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
+}
