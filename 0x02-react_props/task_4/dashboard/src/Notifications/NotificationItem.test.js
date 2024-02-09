@@ -18,6 +18,6 @@ describe("<NotificationItem />", () => {
     const Component = shallow(<NotificationItem />);
 
     Component.setProps({ html: "<u>test</u>" });
-    expect(Component.html()).toEqual('<li data-urgent="true"><u>test</u></li>');
+    expect(Component.html()).toEqual('<li data-notification-type="default"><u>test</u></li>');
   });
 });

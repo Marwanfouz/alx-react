@@ -16,7 +16,7 @@ describe("<Notifications />w", () => {
     expect(wrapper.find("ul").children()).toHaveLength(3);
     expect(wrapper.find("ul").childAt(0).html()).toEqual('<li data-notification-type="default">New course available</li>');
     expect(wrapper.find("ul").childAt(1).html()).toEqual('<li data-notification-type="urgent">New resume available</li>');
-    expect(wrapper.find("ul").childAt(2).html()).toEqual(`<li data-urgent=\"true\">${getLatestNotification()}</li>`);
+    expect(wrapper.find("ul").childAt(2).html()).toEqual(`<li data-notification-type="urgent">${getLatestNotification()}</li>`);
   });
 
   it("renders an unordered list", () => {
