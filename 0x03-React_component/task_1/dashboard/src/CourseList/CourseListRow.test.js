@@ -4,7 +4,7 @@ import CourseListRow from './CourseListRow';
 
 describe('CourseListRow', () => {
   it('renders one cell with colspan = 2 when textSecondCell does not exist', () => {
-    const wrapper = shallow(<CourseListRow isHeader textFirstCell="Header" />);
+    const wrapper = shallow(<CourseListRow isHeader textFirstCell="Header" textSecondCell={null} />);
     const thElement = wrapper.find('th');
 
     expect(thElement).toHaveLength(1);

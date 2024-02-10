@@ -11,10 +11,14 @@ import "./App.css";
 class App extends React.Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool,
+    logOut: () => {
+      return;
+    },
   };
   
   static defaultProps = {
     isLoggedIn: false,
+    logOut: PropTypes.func,
   };
 
   listCourses = [
