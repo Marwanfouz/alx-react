@@ -1,0 +1,13 @@
+.App-body {
+  font-size: 1rem;
+  padding: 2em;
+  border-bottom: 3px solid #e0354b;
+  height: 45%;
+}
+
+.App-footer {
+  font-size: 1rem;
+  padding: 1.2rem;
+  text-align: center;
+  font-style: italic;
+}
