@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Notifications from "../Notifications/Notifications";
 import Header from "../Header/Header";
 import Login from "../Login/Login";
@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { getLatestNotification } from "../utils/utils";
 import "./App.css";
 
-class App extends Component {
+class App extends React.Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool,
   };
