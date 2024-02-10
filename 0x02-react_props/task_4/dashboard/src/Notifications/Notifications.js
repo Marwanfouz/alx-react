@@ -10,12 +10,13 @@ function Notifications({ displayDrawer }) {
     <>
     {displayDrawer ? (
     <>
+    <div className="flex">
       <div className="menuItem">
       <p>Your notifications</p>
       </div>
       <div className="Notifications">
       <button
-        style={{ color: "#3a3a3a", fontWeight: "bold", background: "none", border: "none", fontSize: "15px", position: "absolute", right: "2px", top: "2px", cursor: "pointer" }}
+        className="notification-button"
         aria-label="Close"
         onClick={() => console.log("Close button has been clicked")}
       >
@@ -28,6 +29,7 @@ function Notifications({ displayDrawer }) {
         <NotificationItem type="urgent" html={getLatestNotification()} />
       </ul>
       </div>
+    </div>
     </>
     ) : (
       <div className="menuItem">
