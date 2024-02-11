@@ -9,17 +9,11 @@ import { getLatestNotification } from "../utils/utils";
 import "./App.css";
 
 class App extends React.Component {
-  static propTypes = {
-    isLoggedIn: PropTypes.bool,
-    logOut: () => {
-      return;
-    },
-  };
-  
-  static defaultProps = {
-    isLoggedIn: false,
-    logOut: PropTypes.func,
-  };
+  constructor(props) {
+    super(props);
+
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
 
   listCourses = [
     { id: 1, name: "ES6", credit: 60 },
@@ -32,6 +26,21 @@ class App extends React.Component {
     { id: 2, type: "urgent", value: "New resume available" },
     { id: 3, type: "urgent", html: getLatestNotification() },
   ];
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleKeyPress = (event) => {
+    if (event.ctrlKey && event.key === "h") {
+      alert("Logging you out");
+      this.props.logOut();
+    }
+  };
 
   render() {
     return (
@@ -46,5 +55,16 @@ class App extends React.Component {
     );
   }
 }
+
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func
+};
+
+App.defaultProps = {
+  isLoggedIn: false,
+  logOut: () => {},
+};
 
 export default App;
