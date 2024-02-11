@@ -35,7 +35,7 @@ class App extends React.Component {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
-  handleKeyPress = (event) => {
+  handleKeyPress(event) {
     if (event.ctrlKey && event.key === "h") {
       alert("Logging you out");
       this.props.logOut();

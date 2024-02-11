@@ -2,14 +2,17 @@ import React from "react";
 import "./Notifications.css";
 import PropTypes from "prop-types";
 
-function NotificationItem({ type, html, value }) {
-  return (
-    <>
-      <li data-notification-type={type} dangerouslySetInnerHTML={html ? { __html: html } : null}>
-        {value}
-      </li>
-    </>
-  );
+class NotificationItem extends React.Component {
+  render() {
+    const { type, value, html, markAsRead, id } = this.props;
+    return (
+      <>
+        <li onClick={() => markAsRead(id)} data-notification-type={type} dangerouslySetInnerHTML={html ? { __html: html } : null}>
+          {value}
+        </li>
+      </>
+    );
+  }
 }
 
 NotificationItem.propTypes = {
@@ -18,10 +21,14 @@ NotificationItem.propTypes = {
   __html: PropTypes.shape({
     html: PropTypes.string,
   }),
+  markAsRead: PropTypes.func,
+  id: PropTypes.number,
 };
 
 NotificationItem.defaultProps = {
   type: "default",
+  markAsRead: () => {},
+  id: 0,
 };
 
 export default NotificationItem;

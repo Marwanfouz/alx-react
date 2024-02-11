@@ -4,6 +4,7 @@
   align-items: flex-end;
   position: absolute;
   right: 5px;
+  z-index: 2;
 }
 
 .menuItem {
