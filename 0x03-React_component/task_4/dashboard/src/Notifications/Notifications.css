@@ -1,0 +1,33 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  right: 5px;
+  z-index: 2;
+}
+
+.menuItem {
+  text-align: right;
+}
+
+.Notifications {
+  padding: 8px;
+  border: 2px dashed red;
+  width: 35vw;
+}
+
+.notification-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+
+li[data-notification-type="default"] {
+  color: blue;
+}
+
+li[data-notification-type="urgent"] {
+  color: red;
+}
