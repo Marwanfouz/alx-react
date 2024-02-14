@@ -31,4 +31,11 @@ describe('CourseListRow', () => {
     expect(tdElements.at(0).text()).toEqual('Data 1');
     expect(tdElements.at(1).text()).toEqual('Data 2');
   });
+
+  it('renders two td elements tr element with correct colors', () => {
+    const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="test" textSecondCell={null} />);
+
+    expect(wrapper.find("tr").children()).toHaveLength(1);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual('<th style="background-color:#deb5b545" colSpan="2">test</th>');
+  });
 });
