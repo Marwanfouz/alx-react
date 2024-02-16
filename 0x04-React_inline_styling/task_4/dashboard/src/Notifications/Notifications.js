@@ -60,6 +60,18 @@ class Notifications extends React.Component {
   }
 }
 
+const opacity = {
+  "0%": { opacity: 0.5 },
+  "100%": { opacity: 1 },
+};
+
+const bounce = {
+  "0%": { transform: "translateY(0px)" },
+  "33%": { transform: "translateY(-5px)" },
+  "66%": { transform: "translateY(5px)" },
+  "100%": { transform: "translateY(0px)" },
+};
+
 const styles = StyleSheet.create({
   flex: {
     display: "flex",
@@ -98,6 +110,12 @@ const styles = StyleSheet.create({
 
   menuItem: {
     textAlign: "right",
+    ":hover": {
+      cursor: "pointer",
+      animationName: [opacity, bounce],
+      animationDuration: "1s, 0.5s",
+      animationIterationCount: "3",
+    },
   },
 });
 
@@ -107,7 +125,7 @@ Notifications.propTypes = {
 };
 
 Notifications.defaultProps = {
-  displayDrawer: true,
+  displayDrawer: false,
   listNotifications: [],
 };
 
