@@ -14,7 +14,11 @@ class Notifications extends React.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.length > this.props.listNotifications.length;
+    return (
+      nextProps.listNotifications.length >
+        this.props.listNotifications.length ||
+      nextProps.displayDrawer !== this.props.displayDrawer
+    );
   }
 
   markAsRead(id) {
@@ -22,7 +26,7 @@ class Notifications extends React.Component {
   }
 
   render() {
-    const { displayDrawer, listNotifications } = this.props;
+    const { displayDrawer, listNotifications, handleDisplayDrawer, handleHideDrawer } = this.props;
 
     return (
       <>
@@ -33,7 +37,10 @@ class Notifications extends React.Component {
         <button
           className={css(styles["notification-button"])}
           aria-label="Close"
-          onClick={() => console.log("Close button has been clicked")}
+          onClick={() => {
+            console.log("Close button has been clicked");
+            handleHideDrawer();
+            }}
         >
           <img src={closeIcon} alt="closeIcon" width="10px" />
         </button>
@@ -51,7 +58,7 @@ class Notifications extends React.Component {
       </div>
       </>
       ) : (
-        <div className={css(styles.menuItem)}>
+        <div className={css(styles.menuItem)} onClick={handleDisplayDrawer}>
           <p>Your notifications</p>
         </div>
       )}
@@ -122,11 +129,15 @@ const styles = StyleSheet.create({
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
   listNotifications: PropTypes.arrayOf(NotificationItemShape),
+  handleDisplayDrawer: PropTypes.func,
+  handleHideDrawer: PropTypes.func,
 };
 
 Notifications.defaultProps = {
   displayDrawer: false,
   listNotifications: [],
+  handleDisplayDrawer: () => {},
+  handleHideDrawer: () => {},
 };
 
 export default Notifications;

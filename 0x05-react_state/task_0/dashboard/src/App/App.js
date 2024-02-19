@@ -15,6 +15,12 @@ class App extends React.Component {
     super(props);
 
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
+
+    this.state = {
+      displayDrawer: false,
+    };
   }
 
   listCourses = [
@@ -29,6 +35,26 @@ class App extends React.Component {
     { id: 3, type: "urgent", html: getLatestNotification() },
   ];
 
+  
+  handleKeyPress(event) {
+    if (event.ctrlKey && event.key === "h") {
+      alert("Logging you out");
+      this.props.logOut();
+    }
+  };
+  
+  handleDisplayDrawer() {
+    this.setState({
+      displayDrawer: true,
+    });
+  }
+  
+  handleHideDrawer() {
+    this.setState({
+      displayDrawer: false,
+    });
+  }
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
   }
@@ -37,17 +63,15 @@ class App extends React.Component {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
-  handleKeyPress(event) {
-    if (event.ctrlKey && event.key === "h") {
-      alert("Logging you out");
-      this.props.logOut();
-    }
-  };
-
   render() {
     return (
       <>
-        <Notifications listNotifications={this.listNotifications}/>
+        <Notifications
+          listNotifications={this.listNotifications}
+          displayDrawer={this.state.displayDrawer}
+          handleDisplayDrawer={this.handleDisplayDrawer}
+          handleHideDrawer={this.handleHideDrawer}
+        />
         <div className={css(styles.App)} >
         <Header />
         {this.props.isLoggedIn ? (
