@@ -37,10 +37,7 @@ class Notifications extends React.Component {
         <button
           className={css(styles["notification-button"])}
           aria-label="Close"
-          onClick={() => {
-            console.log("Close button has been clicked");
-            handleHideDrawer();
-            }}
+          onClick={handleHideDrawer}
         >
           <img src={closeIcon} alt="closeIcon" width="10px" />
         </button>

@@ -18,9 +18,7 @@ class App extends React.Component {
     this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
     this.handleHideDrawer = this.handleHideDrawer.bind(this);
 
-    this.state = {
-      displayDrawer: false,
-    };
+    this.state = { displayDrawer: false };
   }
 
   listCourses = [
@@ -44,9 +42,7 @@ class App extends React.Component {
   };
   
   handleDisplayDrawer() {
-    this.setState({
-      displayDrawer: true,
-    });
+    this.setState({ displayDrawer: true });
   }
   
   handleHideDrawer() {
